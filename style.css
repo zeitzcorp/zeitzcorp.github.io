@@ -459,16 +459,46 @@ img {
     }
 }
 
-/* 6. Hero Section / Primeira Dobra */
 .hero-section {
     padding-top: calc(var(--header-height) + 60px);
-    padding-bottom: 80px;
-    background: var(--bg-navy) radial-gradient(circle at 80% 30%, rgba(201, 168, 76, 0.1) 0%, rgba(13, 27, 42, 0) 60%);
+    padding-bottom: 140px;
+    background: linear-gradient(180deg, rgba(13, 27, 42, 0.85) 0%, rgba(13, 27, 42, 0.95) 100%), url('public/hero-bg.webp') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
     position: relative;
-    min-height: 90vh;
+    min-height: 95vh;
     display: flex;
     align-items: center;
     overflow: hidden;
+}
+
+/* Transição de Seção Onda */
+.hero-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 10;
+}
+
+.hero-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.hero-divider .shape-fill {
+    fill: var(--bg-light);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
 }
 
 .hero-container {
