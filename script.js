@@ -121,10 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookieConsent = document.getElementById('cookie-consent');
 
     const adjustWhatsappButton = () => {
-        if (!whatsappFloat || !footer) return;
+        if (!whatsappFloat) return;
 
-        const footerRect = footer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
         const baseBottom = window.innerWidth >= 768 ? 30 : 24;
         let additionalOffset = 0;
 
@@ -134,13 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             additionalOffset += cookieRect.height + 12;
         }
 
-        // If the footer is visible in the viewport
-        if (footerRect.top < windowHeight) {
-            const visibleFooterHeight = windowHeight - footerRect.top;
-            whatsappFloat.style.bottom = `${baseBottom + visibleFooterHeight + additionalOffset}px`;
-        } else {
-            whatsappFloat.style.bottom = `${baseBottom + additionalOffset}px`;
-        }
+        whatsappFloat.style.bottom = `${baseBottom + additionalOffset}px`;
     };
 
     if (whatsappFloat && footer) {
