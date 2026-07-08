@@ -1686,15 +1686,17 @@ img {
     display: block;
     width: calc(100% + 1.3px);
     height: 70px;
+    transform: scale(1.02); /* Overlaps subpixels to eliminate horizontal line gaps */
+    transform-origin: center;
 }
 
 .divider-top {
-    top: -1px;
+    top: -2px;
     transform: rotate(180deg);
 }
 
 .divider-bottom {
-    bottom: -1px;
+    bottom: -2px;
 }
 
 .services-section .divider-top .shape-fill {
