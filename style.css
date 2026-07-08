@@ -621,9 +621,9 @@ img {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 896 / 485;
     animation: float 6s ease-in-out infinite;
 }
 
@@ -634,7 +634,7 @@ img {
 
 @media (min-width: 768px) {
     .logo-showcase {
-        max-width: 320px;
+        max-width: 450px;
     }
 }
 
