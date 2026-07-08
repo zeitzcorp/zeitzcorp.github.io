@@ -1299,6 +1299,41 @@ img {
     padding-top: 20px;
 }
 
+@media (min-width: 768px) {
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1.2fr;
+        text-align: left;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .footer-brand {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-links ul {
+        align-items: flex-start;
+    }
+
+    .footer-links a:hover {
+        padding-left: 4px;
+    }
+
+    .footer-notice {
+        text-align: justify;
+    }
+
+    .footer-copyright {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        gap: 24px;
+    }
+}
+
 /* Scroll Animation classes */
 .fade-in-up {
     opacity: 0;
