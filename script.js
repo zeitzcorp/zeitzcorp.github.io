@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = !isOpened ? 'hidden' : '';
         });
 
-        // Close mobile nav when clicking a link
-        navLinks.forEach(link => {
+        // Close mobile nav when clicking any link or button inside the menu
+        primaryNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.setAttribute('aria-expanded', 'false');
                 primaryNav.classList.remove('open');
