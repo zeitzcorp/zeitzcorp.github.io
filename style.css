@@ -750,6 +750,8 @@ img {
 /* 8. Serviços / Soluções Section */
 .services-section {
     background: var(--bg-navy) radial-gradient(circle at 20% 80%, rgba(201, 168, 76, 0.05) 0%, rgba(13, 27, 42, 0) 60%);
+    padding-top: 160px;
+    padding-bottom: 160px;
 }
 
 .services-grid {
@@ -1005,7 +1007,7 @@ img {
 .trust-section {
     background-color: var(--bg-navy);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    padding: 100px 0;
+    padding: 160px 0 100px;
     color: var(--white);
 }
 
@@ -1670,6 +1672,44 @@ img {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* General Section Dividers */
+.section-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+}
+
+.section-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.divider-top {
+    top: -1px;
+    transform: rotate(180deg);
+}
+
+.divider-bottom {
+    bottom: -1px;
+}
+
+.services-section .divider-top .shape-fill {
+    fill: var(--white);
+}
+
+.services-section .divider-bottom .shape-fill {
+    fill: var(--bg-light);
+}
+
+.trust-section .divider-top .shape-fill {
+    fill: var(--white);
 }
 
 
