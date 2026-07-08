@@ -5,20 +5,21 @@
 /* 1. Variables & Design Tokens */
 :root {
     /* Color Palette */
-    --bg-deep: #050505;
-    --bg-card: #151515;
-    --gold-primary: #C9A646;
-    --gold-light: #E8C96A;
-    --gold-dark: #A5822E;
+    --bg-navy: #0D1B2A;
+    --blue-medium: #1B3358;
+    --gold-primary: #C9A84C;
+    --gold-light: #F5E6C0;
+    --bg-light: #F7F9FC;
+    --text-dark: #1A1A2E;
+    --text-gray: #6B7280;
+    --border-color: #DDE3EC;
     --white: #FFFFFF;
-    --text-gray: #D6D6D6;
-    --text-dark: #8F8F8F;
     
     /* Gradients */
-    --gold-gradient: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
-    --dark-gradient: linear-gradient(180deg, #0d0d0d 0%, var(--bg-deep) 100%);
-    --card-gradient: linear-gradient(145deg, #1d1d1d 0%, #111111 100%);
-    --glow-gradient: radial-gradient(circle, rgba(201, 166, 70, 0.15) 0%, rgba(5, 5, 5, 0) 70%);
+    --gold-gradient: linear-gradient(135deg, var(--gold-primary) 0%, #E6C76C 100%);
+    --navy-gradient: linear-gradient(180deg, #12253B 0%, var(--bg-navy) 100%);
+    --card-gradient: linear-gradient(145deg, #FFFFFF 0%, var(--bg-light) 100%);
+    --glow-gradient: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, rgba(13, 27, 42, 0) 70%);
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
@@ -36,11 +37,11 @@
     --transition-fast: all 0.2s ease;
     
     /* Shadows & Borders */
-    --card-border: 1px solid rgba(201, 166, 70, 0.15);
-    --card-border-hover: 1px solid rgba(201, 166, 70, 0.4);
-    --shadow-premium: 0 15px 35px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
-    --gold-glow: 0 0 25px rgba(201, 166, 70, 0.25);
-    --gold-glow-hover: 0 0 35px rgba(201, 166, 70, 0.45);
+    --card-border: 1px solid var(--border-color);
+    --card-border-hover: 1px solid var(--gold-primary);
+    --shadow-premium: 0 10px 30px rgba(13, 27, 42, 0.08), 0 1px 8px rgba(13, 27, 42, 0.04);
+    --gold-glow: 0 0 20px rgba(201, 168, 76, 0.20);
+    --gold-glow-hover: 0 0 30px rgba(201, 168, 76, 0.35);
 }
 
 /* 2. Global Reset & Base Styles */
@@ -57,8 +58,8 @@ html {
 }
 
 body {
-    background-color: var(--bg-deep);
-    color: var(--text-gray);
+    background-color: var(--white);
+    color: var(--text-dark);
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
@@ -66,7 +67,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--white);
+    color: var(--text-dark);
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.25;
@@ -129,6 +130,22 @@ img {
 @media (min-width: 992px) {
     .grid-3 {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-4 {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 576px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -198,8 +215,8 @@ img {
 
 .btn-primary {
     background: var(--gold-gradient);
-    color: var(--bg-deep);
-    box-shadow: 0 4px 15px rgba(201, 166, 70, 0.2);
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.15);
 }
 
 .btn-primary:hover {
@@ -211,14 +228,14 @@ img {
 .btn-secondary {
     background: transparent;
     color: var(--white);
-    border-color: rgba(201, 166, 70, 0.4);
+    border-color: rgba(201, 168, 76, 0.4);
 }
 
 .btn-secondary:hover {
-    border-color: var(--gold-light);
-    background: rgba(201, 166, 70, 0.05);
+    border-color: var(--gold-primary);
+    background: rgba(201, 168, 76, 0.05);
     transform: translateY(-2px);
-    color: var(--gold-light);
+    color: var(--gold-primary);
 }
 
 .btn-large {
@@ -249,7 +266,7 @@ img {
 /* 5. Header / Cabeçalho */
 .header {
     height: var(--header-height);
-    background-color: rgba(5, 5, 5, 0.85);
+    background-color: rgba(13, 27, 42, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -265,8 +282,8 @@ img {
 
 .header.scrolled {
     height: 70px;
-    background-color: rgba(5, 5, 5, 0.95);
-    border-bottom: 1px solid rgba(201, 166, 70, 0.15);
+    background-color: rgba(13, 27, 42, 0.95);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .header-container {
@@ -313,7 +330,7 @@ img {
 .nav-link {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.7);
     position: relative;
     padding: 8px 0;
 }
@@ -331,7 +348,7 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--gold-light);
+    color: var(--gold-primary);
 }
 
 .nav-link:hover::after,
@@ -409,10 +426,10 @@ img {
         width: 80%;
         max-width: 400px;
         height: 100vh;
-        background-color: rgba(10, 10, 10, 0.98);
+        background-color: rgba(13, 27, 42, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-left: 1px solid rgba(201, 166, 70, 0.2);
+        border-left: 1px solid rgba(201, 168, 76, 0.2);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -441,7 +458,7 @@ img {
 .hero-section {
     padding-top: calc(var(--header-height) + 60px);
     padding-bottom: 80px;
-    background-image: radial-gradient(circle at 80% 30%, rgba(201, 166, 70, 0.08) 0%, rgba(5, 5, 5, 0) 60%);
+    background: var(--bg-navy) radial-gradient(circle at 80% 30%, rgba(201, 168, 76, 0.1) 0%, rgba(13, 27, 42, 0) 60%);
     position: relative;
     min-height: 90vh;
     display: flex;
@@ -478,7 +495,7 @@ img {
     line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -0.03em;
-    background: linear-gradient(180deg, #FFFFFF 60%, #B8B8B8 100%);
+    background: linear-gradient(180deg, #FFFFFF 60%, #DDE3EC 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -491,7 +508,7 @@ img {
 
 .hero-subtitle {
     font-size: 1.1rem;
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 40px;
     max-width: 600px;
 }
@@ -612,11 +629,32 @@ img {
     100% { transform: translateY(0px); }
 }
 
+/* Apresentação Section */
+.presentation-section {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: 80px 0;
+}
+
+.presentation-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.presentation-wrapper .section-title {
+    margin-bottom: 24px;
+}
+
+.presentation-wrapper .section-desc {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
 /* 7. Oportunidade Section */
 .opportunity-section {
-    background-color: #0b0b0b;
-    border-top: 1px solid rgba(255,255,255,0.02);
-    border-bottom: 1px solid rgba(255,255,255,0.02);
+    background-color: var(--white);
 }
 
 .opportunity-content {
@@ -633,7 +671,7 @@ img {
 }
 
 .opt-card {
-    background: var(--bg-card);
+    background: var(--bg-light);
     border: var(--card-border);
     border-radius: var(--border-radius-md);
     padding: 30px 24px;
@@ -647,18 +685,19 @@ img {
 .opt-card:hover {
     transform: translateY(-5px);
     border-color: var(--gold-primary);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(201, 166, 70, 0.08);
+    background: var(--white);
+    box-shadow: var(--shadow-premium);
 }
 
 .opt-icon-wrapper {
     width: 44px;
     height: 44px;
-    background: rgba(201, 166, 70, 0.1);
+    background: rgba(251, 230, 192, 0.4);
     border-radius: var(--border-radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold-primary);
+    color: var(--blue-medium);
 }
 
 .opt-icon-wrapper svg {
@@ -668,14 +707,14 @@ img {
 
 .opt-card h3 {
     font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--white);
+    font-weight: 700;
+    color: var(--text-dark);
     line-height: 1.35;
 }
 
-/* 8. Serviços Section */
+/* 8. Serviços / Soluções Section */
 .services-section {
-    background: var(--bg-deep);
+    background: var(--bg-navy) radial-gradient(circle at 20% 80%, rgba(201, 168, 76, 0.05) 0%, rgba(13, 27, 42, 0) 60%);
 }
 
 .services-grid {
@@ -683,8 +722,8 @@ img {
 }
 
 .service-card {
-    background: linear-gradient(135deg, rgba(21, 21, 21, 0.9) 0%, rgba(13, 13, 13, 0.9) 100%);
-    border: var(--card-border);
+    background: linear-gradient(135deg, rgba(27, 51, 88, 0.3) 0%, rgba(13, 27, 42, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--border-radius-lg);
     padding: 48px 36px;
     transition: var(--transition-smooth);
@@ -709,8 +748,8 @@ img {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(201, 166, 70, 0.35);
-    box-shadow: var(--shadow-premium), 0 10px 30px rgba(201, 166, 70, 0.05);
+    border-color: var(--gold-primary);
+    box-shadow: var(--gold-glow);
 }
 
 .service-card:hover::before {
@@ -720,8 +759,8 @@ img {
 .service-icon-box {
     width: 56px;
     height: 56px;
-    background: rgba(201, 166, 70, 0.08);
-    border: 1px solid rgba(201, 166, 70, 0.2);
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px solid rgba(201, 168, 76, 0.2);
     border-radius: var(--border-radius-md);
     display: flex;
     align-items: center;
@@ -738,7 +777,7 @@ img {
 
 .service-card:hover .service-icon-box {
     background: var(--gold-gradient);
-    color: var(--bg-deep);
+    color: var(--text-dark);
     border-color: transparent;
     box-shadow: var(--gold-glow);
 }
@@ -747,23 +786,26 @@ img {
     font-size: 1.35rem;
     margin-bottom: 16px;
     font-weight: 700;
+    color: var(--white);
 }
 
 .service-card p {
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
+.services-section .section-title {
+    color: var(--white);
+}
+
 /* 9. Diferenciais Section */
 .differences-section {
-    background-color: #080808;
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    background-color: var(--bg-light);
 }
 
 .diff-card {
-    background: var(--bg-card);
+    background: var(--white);
     border: var(--card-border);
     border-radius: var(--border-radius-lg);
     padding: 40px;
@@ -803,7 +845,7 @@ img {
 
 /* 10. Como Funciona / Steps Section */
 .steps-section {
-    background: var(--bg-deep);
+    background: var(--white);
 }
 
 .timeline {
@@ -820,7 +862,7 @@ img {
     left: 30px;
     bottom: 10px;
     width: 2px;
-    background: linear-gradient(to bottom, var(--gold-primary) 0%, rgba(201, 166, 70, 0.1) 100%);
+    background: linear-gradient(to bottom, var(--gold-primary) 0%, rgba(201, 168, 76, 0.1) 100%);
 }
 
 .timeline-item {
@@ -838,30 +880,30 @@ img {
     left: -29px;
     width: 28px;
     height: 28px;
-    background-color: var(--bg-deep);
+    background-color: var(--white);
     border: 2px solid var(--gold-primary);
     border-radius: 50%;
-    color: var(--gold-light);
+    color: var(--blue-medium);
     font-family: var(--font-heading);
     font-size: 0.85rem;
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 10px rgba(201, 166, 70, 0.2);
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.15);
     z-index: 2;
     transition: var(--transition-smooth);
 }
 
 .timeline-item:hover .timeline-number {
     background: var(--gold-gradient);
-    color: var(--bg-deep);
+    color: var(--text-dark);
     box-shadow: var(--gold-glow);
     transform: scale(1.15);
 }
 
 .timeline-content {
-    background: var(--bg-card);
+    background: var(--bg-light);
     border: var(--card-border);
     border-radius: var(--border-radius-md);
     padding: 30px 36px;
@@ -869,7 +911,7 @@ img {
 }
 
 .timeline-item:hover .timeline-content {
-    border-color: rgba(201, 166, 70, 0.3);
+    border-color: var(--gold-primary);
     transform: translateX(5px);
     box-shadow: var(--shadow-premium);
 }
@@ -877,7 +919,8 @@ img {
 .timeline-content h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
 .timeline-content p {
@@ -923,20 +966,86 @@ img {
     }
 }
 
+/* Seção de Confiança */
+.trust-section {
+    background-color: var(--bg-navy);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 100px 0;
+    color: var(--white);
+}
+
+.trust-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.trust-header .section-title {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.trust-header .section-desc {
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+.trust-grid {
+    margin-top: 40px;
+}
+
+.trust-card {
+    background: linear-gradient(135deg, rgba(27, 51, 88, 0.3) 0%, rgba(13, 27, 42, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    padding: 30px 24px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.trust-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-primary);
+    box-shadow: var(--gold-glow);
+}
+
+.trust-icon-box {
+    width: 50px;
+    height: 50px;
+    color: var(--gold-primary);
+}
+
+.trust-icon-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+.trust-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0;
+}
+
 /* 11. CTA Section */
 .cta-section {
-    background-color: #0b0b0b;
+    background-color: var(--bg-navy);
     padding-bottom: 120px;
 }
 
 .cta-wrapper {
     position: relative;
     border-radius: var(--border-radius-lg);
-    background: linear-gradient(135deg, #121212 0%, #060606 100%);
-    border: var(--card-border);
+    background: linear-gradient(135deg, rgba(27, 51, 88, 0.3) 0%, rgba(13, 27, 42, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 60px 40px;
     overflow: hidden;
-    box-shadow: var(--shadow-premium), 0 10px 40px rgba(0,0,0,0.6);
+    box-shadow: var(--shadow-premium), var(--gold-glow);
 }
 
 @media (min-width: 768px) {
@@ -952,7 +1061,7 @@ img {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(201, 166, 70, 0.08) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, rgba(13,27,42,0) 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -973,6 +1082,7 @@ img {
     margin-bottom: 20px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    color: var(--white);
 }
 
 @media (min-width: 768px) {
@@ -983,7 +1093,7 @@ img {
 
 .cta-desc {
     font-size: 1.1rem;
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.8);
     max-width: 600px;
     margin-bottom: 40px;
 }
@@ -1011,14 +1121,14 @@ img {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .phone-number {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--gold-light);
+    color: var(--gold-primary);
 }
 
 .phone-number:hover {
@@ -1027,8 +1137,8 @@ img {
 
 /* 12. Footer / Rodapé */
 .footer {
-    background-color: var(--bg-deep);
-    border-top: 1px solid rgba(201, 166, 70, 0.15);
+    background-color: var(--bg-navy);
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
     padding: 80px 0 40px;
 }
 
@@ -1059,7 +1169,7 @@ img {
 
 .footer-desc {
     font-size: 0.9rem;
-    color: var(--text-gray);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
     max-width: 320px;
 }
@@ -1072,9 +1182,9 @@ img {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    background: rgba(201, 166, 70, 0.1);
-    color: var(--gold-light);
-    border: 1px solid rgba(201, 166, 70, 0.2);
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--gold-primary);
+    border: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .footer-links h4,
@@ -1095,17 +1205,18 @@ img {
 
 .footer-links a {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition-smooth);
 }
 
 .footer-links a:hover {
-    color: var(--gold-light);
+    color: var(--gold-primary);
     padding-left: 4px;
 }
 
 .footer-contact p {
     font-size: 0.85rem;
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 8px;
 }
 
@@ -1120,7 +1231,7 @@ img {
 }
 
 .footer-whatsapp:hover {
-    color: var(--gold-light);
+    color: var(--gold-primary);
 }
 
 .whatsapp-icon {
@@ -1139,7 +1250,7 @@ img {
 
 .footer-notice {
     font-size: 0.75rem;
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.4);
     line-height: 1.6;
     text-align: justify;
 }
@@ -1149,7 +1260,7 @@ img {
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: var(--text-dark);
+    color: rgba(255, 255, 255, 0.4);
     border-top: 1px solid rgba(255, 255, 255, 0.03);
     padding-top: 20px;
 }
@@ -1187,7 +1298,7 @@ img {
     height: 56px;
     background-color: #25D366;
     color: var(--white);
-    border: 2px solid #C9A646;
+    border: 2px solid var(--gold-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
