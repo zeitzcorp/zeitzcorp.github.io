@@ -302,6 +302,8 @@ img {
     height: 44px;
     width: auto;
     object-fit: contain;
+    border-radius: 0 !important;
+    border: none !important;
 }
 
 .logo-text {
